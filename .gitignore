@@ -23,6 +23,7 @@ node_modules
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+/.vscode
 
 # misc
 /.sass-cache
@@ -39,3 +40,4 @@ testem.log
 Thumbs.db
 
 .angular
+.vscode/extensions.json
