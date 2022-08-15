@@ -8,6 +8,7 @@ import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { AuthComponent } from './components/auth/auth.component';
     NxWelcomeComponent,
     AuthComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(AppRoutes)],
+  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(AppRoutes), TranslocoRootModule],
   providers: [],
   bootstrap: [AppComponent],
 })
