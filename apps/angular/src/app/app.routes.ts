@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthComponent } from './components/auth/auth.component';
+import { AuthComponent } from './pages/auth/auth.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.sevice';
 

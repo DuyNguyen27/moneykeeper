@@ -1,0 +1,18 @@
+{
+    "login.title": "Sign in to website",
+    "login.or": "or use your account",
+    "login.forgotpw": "Forgot your password?",
+    "login.submit": "Sign in",
+    "login.detail.title": "Already have an account?",
+    "login.detail.content": "To keep connected with us please login with your personal info.",
+    "signup.title": "Create account",
+    "signup.or": "or use email for registration",
+    "signup.submit": "Sign up",
+    "login.detail.signinnow": "Sign in now!",
+    "signup.detail.title": "Don't have an account?",
+    "signup.detail.content": "Enter your personal details and start journey with us.",
+    "signup.signnow": "Sign up now!",
+    "auth.form.name": "Your name",
+    "auth.form.username": "Username / Email",
+    "auth.form.password": "Password"
+}

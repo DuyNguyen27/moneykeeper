@@ -1,0 +1,18 @@
+{
+    "login.title": "Đăng nhập ngay",
+    "login.or": "hoặc sử dụng tài khoản của bạn",
+    "login.forgotpw": "Quên tài khoản?",
+    "login.submit": "Đăng nhập",
+    "login.detail.title": "Đã có tài khoản?",
+    "login.detail.content": "Vui lòng đăng nhập với thông tin tài khoản của bạn.",
+    "login.detail.signinnow": "Đăng nhập ngay!",
+    "signup.title": "Tạo mới tài khoản",
+    "signup.or": "hoặc đăng ký với thông tin email của bạn",
+    "signup.submit": "Đăng ký",
+    "signup.detail.title": "Chưa có tài khoản?",
+    "signup.detail.content": "Nhập thông tin của bạn và bắt đầu trải nghiệm ngay.",
+    "signup.signnow": "Đăng ký ngay!",
+    "auth.form.name": "Tên của bạn",
+    "auth.form.username": "Tên người dùng / Email",
+    "auth.form.password": "Mật khẩu"
+}
