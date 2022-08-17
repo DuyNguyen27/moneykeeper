@@ -5,6 +5,7 @@
     "login.submit": "Sign in",
     "login.detail.title": "Already have an account?",
     "login.detail.content": "To keep connected with us please login with your personal info.",
+    "login.rememberMe": "Remember me",
     "signup.title": "Create account",
     "signup.or": "or use email for registration",
     "signup.submit": "Sign up",

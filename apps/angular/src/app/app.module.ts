@@ -1,43 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import vi from '@angular/common/locales/vi';
 
-import { AppRoutes } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
+
+// own components
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { AuthComponent } from './pages/auth/auth.component';
+import { LayoutComponent } from './components/layout/layout.component';
+
+
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { vi_VN } from 'ng-zorro-antd/i18n';
+import { IconsProviderModule } from './icons-provider.module';
+import { SharedModule } from './shared/shared.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
-import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
-import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+registerLocaleData(vi);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NxWelcomeComponent,
-    AuthComponent,
-    LoginComponent,
-    SignupComponent,
-  ],
+  declarations: [AppComponent, LayoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(AppRoutes),
+    AppRoutingModule,
     TranslocoRootModule,
-    InputTextModule,
-    PasswordModule,
-    ButtonModule,
-    DividerModule,
+    SharedModule.forRoot(),
+    IconsProviderModule,
+    NzLayoutModule,
+    NzMenuModule,
   ],
   bootstrap: [AppComponent],
+  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
 })
 export class AppModule {}
