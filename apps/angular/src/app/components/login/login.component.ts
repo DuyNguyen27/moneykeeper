@@ -8,6 +8,7 @@ import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } 
 })
 export class LoginComponent implements OnInit {
   public signInForm!: UntypedFormGroup;
+  public passwordVisible!: boolean;
   private formSummitAttempt!: boolean;
 
   constructor(
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.signInForm = this.signInFormBuilder.group({
       username: [null, Validators.required],
       password: [null, Validators.required],
+      rememberMe : [false, Validators.required],
     });
   }
 
