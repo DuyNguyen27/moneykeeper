@@ -9,7 +9,7 @@
             />
         </div>
         <span class="form__span">{{ t('login.or') }}</span>
-        <input name="username" class="form__input" pInputText [formControlName]="'username'" [placeholder]="t('auth.form.name')" />
+        <input name="username" type="text" class="form__input" [formControlName]="'username'" [placeholder]="t('auth.form.name')" />
         <p-password name="password" [formControlName]="'password'" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [toggleMask]="true" [feedback]="false" [placeholder]="t('auth.form.password')"></p-password>
         <a class="form__link">{{ t('login.forgotpw') }}</a>
         <button class="form__button auth-button submit" (click)="onHandleSignIn()">

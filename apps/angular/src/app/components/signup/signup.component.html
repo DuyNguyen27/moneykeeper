@@ -11,7 +11,7 @@
         <span class="form__span">{{ t('signup.or') }}</span>
         <input name="name" class="form__input" type="text" pInputText [formControlName]="'name'" [placeholder]="t('auth.form.name')" />
         <input name="username" class="form__input" type="text" pInputText [formControlName]="'username'" [placeholder]="t('auth.form.username')" />
-        <p-password name="password" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [formControlName]="'password'" [toggleMask]="true" [placeholder]="t('auth.form.password')"></p-password>
+        <p-password name="password" [ngStyle]="{ width: '100%' }" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [formControlName]="'password'" [toggleMask]="true" [placeholder]="t('auth.form.password')"></p-password>
         <button class="form__button auth-button submit" (click)="onHandleSignUp()">
       {{ t('signup.submit') }}
     </button>
