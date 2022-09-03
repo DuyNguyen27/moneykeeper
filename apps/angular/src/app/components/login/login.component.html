@@ -9,11 +9,23 @@
             />
         </div>
         <span class="form__span">{{ t('login.or') }}</span>
-        <input name="username" type="text" class="form__input" [formControlName]="'username'" [placeholder]="t('auth.form.name')" />
+        <input name="email" type="email" class="form__input" [formControlName]="'email'" [placeholder]="t('auth.form.email')" />
+        <div class="validation">
+            <angular-field-error-display [displayError]="isFieldValid('email')" errorMsg="form.valid.email">
+            </angular-field-error-display>
+        </div>
         <p-password name="password" [formControlName]="'password'" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [toggleMask]="true" [feedback]="false" [placeholder]="t('auth.form.password')"></p-password>
-        <a class="form__link">{{ t('login.forgotpw') }}</a>
-        <button class="form__button auth-button submit" (click)="onHandleSignIn()">
+        <div class="validation">
+            <angular-field-error-display [displayError]="isFieldValid('password')" errorMsg="form.valid.password">
+            </angular-field-error-display>
+        </div>
+        <div class="remember">
+            <label class="txt-remember" nz-checkbox>{{ t('login.rememberMe') }}</label
+      >
+      <a class="form__link txt-remember">{{ t('login.forgotpw') }}</a>
+    </div>
+    <button class="form__button auth-button submit" (click)="onHandleSignIn()">
       {{ t('login.submit') }}
     </button>
-    </form>
+  </form>
 </ng-container>

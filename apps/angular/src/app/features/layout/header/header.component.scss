@@ -1,0 +1,90 @@
+.header-trigger {
+  height: 64px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  padding: 0 25px;
+  border-radius: 10px;
+}
+
+.space {
+  margin: 0 10px;
+}
+
+.icon-header {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: rgba(232, 241, 248, 0.7);
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+}
+
+.header-right-toolbar {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-input-search {
+  border-radius: 50px;
+  height: 36px;
+  background-color: #e8f1f8;
+  color: #515c66;
+  border: 0px;
+}
+
+.avatar-icon {
+  cursor: pointer;
+}
+
+.menu-avt-dropdown-container {
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.link {
+  width: 100%;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item-title {
+  margin: 0 10px;
+}
+
+.noti-title {
+  width: 100%;
+  color: #515c66;
+  padding: 5px 10px;
+}
+
+.ant-dropdown-menu-item {
+  padding: 10px 15px;
+}

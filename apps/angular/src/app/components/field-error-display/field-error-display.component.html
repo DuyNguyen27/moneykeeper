@@ -1,0 +1,5 @@
+<div *ngIf="displayError">
+    <div class="e-error" [style.color]="color" *transloco="let t">
+        {{ t(errorMsg) }}
+    </div>
+</div>

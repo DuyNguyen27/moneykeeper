@@ -1,0 +1,110 @@
+<div class="app-header">
+  <div class="welcome"><h2>Chào Nguyễn Khánh Duy</h2></div>
+  <div class="header-right-toolbar">
+    <span class="p-input-icon-left space">
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Search"
+        class="header-input-search"
+      />
+    </span>
+    <div
+      class="icon-header space"
+      nz-dropdown
+      [nzTrigger]="'click'"
+      [nzDropdownMenu]="menuNotifications"
+    >
+      <i class="pi pi-bell" style="font-size: 18px"></i>
+    </div>
+    <div
+      class="icon-header space"
+      routerLink="/settings"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <i class="pi pi-cog" style="font-size: 18px"></i>
+    </div>
+    <div class="avatar space">
+      <p-avatar
+        nz-dropdown
+        [nzTrigger]="'click'"
+        [nzDropdownMenu]="menuAvt"
+        label="D"
+        styleClass="mr-2"
+        [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
+        class="avatar-icon"
+        shape="circle"
+      ></p-avatar>
+    </div>
+  </div>
+</div>
+
+<nz-dropdown-menu #menuAvt="nzDropdownMenu">
+  <ul nz-menu nzSelectable class="menu-avt-dropdown-container">
+    <li nz-menu-item style="border-bottom: 0.5px solid gray">
+      <a
+        routerLink="settings/user-info"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="link menu-item"
+      >
+        <p-avatar
+          nz-dropdown
+          label="D"
+          styleClass="mr-2"
+          [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
+          class="avatar-icon"
+          shape="circle"
+        ></p-avatar>
+        <span class="menu-item-title">Duy</span>
+      </a>
+    </li>
+    <li nz-menu-item>
+      <a
+        routerLink="/settings"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="link menu-item"
+      >
+        <i class="pi pi-cog"></i>
+        <h5 class="menu-item-title">Settings</h5>
+      </a>
+    </li>
+    <li nz-menu-item>
+      <a class="link menu-item" (click)="onHandleLogout()">
+        <i class="pi pi-power-off"></i>
+        <h5 class="menu-item-title">Logout</h5>
+      </a>
+    </li>
+  </ul>
+</nz-dropdown-menu>
+
+<nz-dropdown-menu #menuNotifications="nzDropdownMenu">
+  <ul nz-menu nzSelectable class="menu-avt-dropdown-container">
+    <div class="noti-title">Notifications</div>
+    <li nz-menu-item>
+      <a
+        routerLink="/settings"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="link menu-item"
+      >
+        <i class="pi pi-comments"></i>
+        <h5 class="menu-item-title">Notification</h5>
+      </a>
+    </li>
+    <li nz-menu-item>
+      <a
+        routerLink="/settings"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="link menu-item"
+      >
+        <i class="pi pi-comments"></i>
+        <h5 class="menu-item-title">Notification</h5>
+      </a>
+    </li>
+  </ul>
+</nz-dropdown-menu>

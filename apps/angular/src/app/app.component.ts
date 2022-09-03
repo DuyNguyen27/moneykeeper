@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'angular-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = "Money keeper"
+export class AppComponent implements OnInit {
+  constructor(private httpClient: HttpClient) {}
+
+  ngOnInit(): void {
+    this.initApp();
+  }
+  initApp(): void {}
 }

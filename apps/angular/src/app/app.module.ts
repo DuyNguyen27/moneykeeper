@@ -1,39 +1,43 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import vi from '@angular/common/locales/vi';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CookieService } from 'ngx-cookie-service';
+// interceptors
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 // own components
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './components/layout/layout.component';
 
-
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
+// antd and prime
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { vi_VN } from 'ng-zorro-antd/i18n';
-import { IconsProviderModule } from './icons-provider.module';
-import { SharedModule } from './shared/shared.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 registerLocaleData(vi);
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent],
+  declarations: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    HttpClientModule,
     TranslocoRootModule,
-    SharedModule.forRoot(),
-    IconsProviderModule,
-    NzLayoutModule,
-    NzMenuModule,
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
+  providers: [
+    { provide: NZ_I18N, useValue: vi_VN },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    CookieService,
+  ],
 })
 export class AppModule {}

@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+}
+
+.form{
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+.result{
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+}

@@ -1,18 +1,25 @@
+import jwt_decode from 'jwt-decode';
+import { JwtPayload } from '../models/jwt.model';
+
 export function getToken() {
-    return localStorage.getItem('token') || '';
-  }
-  
-  export function removeToken() {
-    return localStorage.removeItem('token');
-  }
-  
-  export function setToken(token: string) {
-    return localStorage.setItem('token', token);
-  }
-  
-  export function parseToken() {
-    let token = getToken();
-    if (!token) return null;
-    let payload = JSON.parse(atob(token.split('.')[1]));
-    return payload;
-  }
+  // return document.cookie('token') || '';
+  return '';
+}
+
+export function removeToken() {
+  return localStorage.removeItem('token');
+}
+
+export function setToken(token: string) {
+  return localStorage.setItem('token', token);
+}
+
+export function parseToken() {
+  const token = getToken();
+  if (!token) return null;
+  return JSON.parse(atob(token.split('.')[1]));
+}
+
+export function jwtDecode(token: string) : JwtPayload {
+  return jwt_decode(token);
+}

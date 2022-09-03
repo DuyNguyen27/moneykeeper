@@ -2,33 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.sevice';
 
-import { LayoutComponent } from './components/layout/layout.component';
-
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
   {
     path: '',
-    component: LayoutComponent,
+    loadChildren: () =>
+      import('./features/layout/layout.module').then((m) => m.LayoutModule),
     canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('./pages/dashboard/dashboard.module').then(
-            (m) => m.DashboardModule
-          ),
-      },
-    ],
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
-      import('./pages/auth/auth.module').then((m) => m.AuthModule),
+      import('./features/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '**',
     loadChildren: () =>
-      import('./pages/page-not-found/page-not-found.module').then(
+      import('./features/page-not-found/page-not-found.module').then(
         (m) => m.PageNotFoundModule
       ),
   },

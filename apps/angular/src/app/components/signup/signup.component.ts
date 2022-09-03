@@ -1,5 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Validators, UntypedFormGroup, UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import {
+  Validators,
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+} from '@angular/forms';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { LocalStorageService } from '../../services/local-storage/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'angular-signup',
@@ -9,9 +18,16 @@ import { Validators, UntypedFormGroup, UntypedFormBuilder, UntypedFormControl } 
 export class SignupComponent implements OnInit {
   public signUpForm!: UntypedFormGroup;
   private formSummitAttempt!: boolean;
+  get formData() {
+    return this.signUpForm.value;
+  }
 
   constructor(
-    @Inject(UntypedFormBuilder) private signUpFormBuilder: UntypedFormBuilder
+    @Inject(UntypedFormBuilder) private signUpFormBuilder: UntypedFormBuilder,
+    private authService: AuthService,
+    private notification: NzNotificationService,
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -20,20 +36,36 @@ export class SignupComponent implements OnInit {
 
   public signUpFormInit(): void {
     this.signUpForm = this.signUpFormBuilder.group({
-      name: [null, Validators.required],
-      username: [null, Validators.required],
-      password: [null, Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
     });
   }
 
   public onHandleSignUp(): void {
-    // this.formSummitAttempt = true;
-    console.log(this.signUpForm.value);
-    // if (this.signUpForm.valid) {
-    //     this.signUpForm.reset();
-    // } else {
-    //     this.validateAllFormFields(this.signUpForm);
-    // }
+    this.formSummitAttempt = true;
+    if (this.signUpForm.valid) {
+      this.authService.register(this.formData).subscribe({
+        next: (response: any) => {
+          const { msg, token } = response;
+          this.localStorageService.set('token', token);
+          this.router.navigate(['/']);
+          this.notification.success('Success', msg);
+        },
+        error: (e: any) => this.notification.error(e.error, e.message),
+      });
+    } else {
+      this.validateAllFormFields(this.signUpForm);
+    }
+  }
+
+  isFieldValid(field: string) {
+    return (
+      (!this.signUpForm.get(field)?.valid &&
+        this.signUpForm.get(field)?.touched) ||
+      (this.signUpForm.get(field)?.untouched && this.formSummitAttempt) ||
+      false
+    );
   }
 
   validateAllFormFields(formGroup: UntypedFormGroup) {

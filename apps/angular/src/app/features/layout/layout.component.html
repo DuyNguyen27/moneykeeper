@@ -1,0 +1,61 @@
+<nz-layout class="app-layout" *transloco="let t">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzBreakpoint="md"
+    nzWidth="256px"
+    [nzTheme]="theme"
+  >
+    <div class="sidebar-logo">
+      <a routerLink="/">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+        <h1 style="color: black">Money keeper</h1>
+      </a>
+    </div>
+    <ul nz-menu [nzTheme]="theme" nzMode="inline" class="full-menu">
+      <ng-container
+        *ngTemplateOutlet="menuTpl; context: { $implicit: menuData }"
+      ></ng-container>
+      <ng-template #menuTpl let-menus>
+        <ng-container *ngFor="let menu of menus">
+          <li
+            *ngIf="!menu.subMenu"
+            nz-menu-item
+            [routerLink]="[menu.link]"
+            nzMatchRouter
+          >
+            <span nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></span>
+            <span>{{ menu.title }}</span>
+          </li>
+          <li
+            *ngIf="menu.subMenu"
+            nz-submenu
+            [nzOpen]="menu.open"
+            [nzTitle]="menu.title"
+            [nzIcon]="menu.icon"
+          >
+            <ul>
+              <ng-container
+                *ngTemplateOutlet="
+                  menuTpl;
+                  context: { $implicit: menu.subMenu }
+                "
+              ></ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ng-template>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <angular-header></angular-header>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+        <angular-speeddial></angular-speeddial>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

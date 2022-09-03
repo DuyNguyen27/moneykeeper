@@ -1,0 +1,32 @@
+<div class="wrapper" *transloco="let t">
+    <div class="main">
+        <div class="container a-container" [ngClass]="{ 'is-logging': isLogging }" id="a-container">
+            <angular-signup *ngIf="!isLogging"></angular-signup>
+        </div>
+        <div class="container b-container" [ngClass]="{ 'is-logging is-z200': isLogging }" id="b-container">
+            <angular-login *ngIf="isLogging"></angular-login>
+        </div>
+        <div class="switch" [ngClass]="{ 'is-signing': isLogging }" id="switch-cnt">
+            <div class="switch__circle" [ngClass]="{ 'is-logging': !isLogging }"></div>
+            <div class="switch__circle switch__circle--t" [ngClass]="{ 'is-logging': !isLogging }"></div>
+            <div class="switch__container" [ngClass]="{ 'is-hidden': isLogging }" id="switch-c1">
+                <h2 class="switch__title title">{{ t('login.detail.title') }}</h2>
+                <p class="switch__description description">
+                    {{ t('login.detail.content') }}
+                </p>
+                <button class="switch__button auth-button switch-btn" (click)="onHandleChangeForm()">
+          {{ t('login.detail.signinnow') }}
+        </button>
+            </div>
+            <div class="switch__container" [ngClass]="{ 'is-hidden': !isLogging }" id="switch-c2">
+                <h2 class="switch__title title">{{ t('signup.detail.title') }}</h2>
+                <p class="switch__description description">
+                    {{ t('signup.detail.content') }}
+                </p>
+                <button class="switch__button auth-button switch-btn" (click)="onHandleChangeForm()">
+          {{ t('signup.signnow') }}
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
