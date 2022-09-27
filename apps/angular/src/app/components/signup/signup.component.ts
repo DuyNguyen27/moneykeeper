@@ -4,11 +4,11 @@ import {
   Validators,
   UntypedFormGroup,
   UntypedFormBuilder,
-  UntypedFormControl,
 } from '@angular/forms';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { Router } from '@angular/router';
+import { validateAllFormFields } from '@core/helpers/form.helper';
 
 @Component({
   selector: 'angular-signup',
@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
         error: (e: any) => this.notification.error(e.error, e.message),
       });
     } else {
-      this.validateAllFormFields(this.signUpForm);
+      validateAllFormFields(this.signUpForm);
     }
   }
 
@@ -66,16 +66,5 @@ export class SignupComponent implements OnInit {
       (this.signUpForm.get(field)?.untouched && this.formSummitAttempt) ||
       false
     );
-  }
-
-  validateAllFormFields(formGroup: UntypedFormGroup) {
-    Object.keys(formGroup.controls).forEach((field) => {
-      const control = formGroup.get(field);
-      if (control instanceof UntypedFormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof UntypedFormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
   }
 }

@@ -9,3 +9,15 @@ export class SignUpModel {
   email!: string;
   password!: string;
 }
+
+export class taxModel {
+  income!: number;
+  insuranceAmount!: number;
+  region!: number;
+  quantity!: number;
+  socialInsurance!: number;
+  healthInsurance!: number;
+  unemploymentInsurance!: number;
+  taxPay!: number;
+  incomeAfterTax!: number;
+}

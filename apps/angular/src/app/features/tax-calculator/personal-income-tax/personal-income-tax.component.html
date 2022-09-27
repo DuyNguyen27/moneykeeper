@@ -1,0 +1,159 @@
+<div nz-row class="tax-container" *transloco="let t">
+  <div nz-col nzSpan="16">
+    <form id="taxForm" [formGroup]="taxForm">
+      <div nz-row class="row-item">
+        <div nz-col nzSpan="6">Thu nhập cá nhân</div>
+        <div nz-col nzSpan="6">
+          <p-inputNumber
+            [min]="0"
+            inputStyleClass="input-full-width"
+            class="input-full-width"
+            [formControlName]="'income'"
+          ></p-inputNumber>
+        </div>
+      </div>
+      
+      <div nz-row class="row-item">
+        <div nz-col nzSpan="6">Lương đóng bảo hiểm</div>
+        <div nz-col nzSpan="6">
+          <p-inputNumber
+            [min]="0"
+            inputStyleClass="input-full-width"
+            class="input-full-width"
+            [formControlName]="'insuranceAmount'"
+          ></p-inputNumber>
+        </div>
+      </div>
+      <div nz-row class="row-item">
+        <div nz-col nzSpan="6">Vùng miền</div>
+        <div nz-col nzSpan="6">
+          <p-dropdown
+            [options]="regions"
+            optionLabel="name"
+            optionValue="code"
+            [formControlName]="'region'"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div nz-row class="row-item">
+        <div nz-col nzSpan="6">Số người phụ thuộc</div>
+        <div nz-col nzSpan="6">
+          <p-inputNumber
+            [min]="0"
+            inputStyleClass="input-full-width"
+            class="input-full-width"
+            [formControlName]="'quantity'"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+      <div nz-row class="row-item">
+        <div nz-col nzSpan="12">
+          <p-panel [header]="title" [toggleable]="true">
+            <div nz-row class="row-item">
+              <div nz-col nzSpan="12">Bảo hiểm xã hội</div>
+              <div nz-col nzSpan="12">
+                <p-inputNumber
+                  [min]="0"
+                  [max]="100"
+                  inputStyleClass="input-full-width"
+                  class="input-full-width"
+                  [formControlName]="'socialInsurance'"
+                  suffix="%"
+                >
+                </p-inputNumber>
+              </div>
+            </div>
+            <div nz-row class="row-item">
+              <div nz-col nzSpan="12">Bảo hiểm y tế</div>
+              <div nz-col nzSpan="12">
+                <p-inputNumber
+                  [min]="0"
+                  [max]="100"
+                  inputStyleClass="input-full-width"
+                  class="input-full-width"
+                  [formControlName]="'healthInsurance'"
+                  suffix="%"
+                >
+                </p-inputNumber>
+              </div>
+            </div>
+            <div nz-row class="row-item">
+              <div nz-col nzSpan="12">Bảo hiểm thất nghiệp</div>
+              <div nz-col nzSpan="12">
+                <p-inputNumber
+                  [min]="0"
+                  [max]="100"
+                  inputStyleClass="input-full-width"
+                  class="input-full-width"
+                  [formControlName]="'unemploymentInsurance'"
+                  suffix="%"
+                >
+                </p-inputNumber>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+      <angular-field-error-display [displayError]="!isAllFieldsValid" errorMsg="form.valid.tax">
+      </angular-field-error-display>
+      <div nz-row class="row-item submit">
+        <div nz-col nzSpan="4" nzOffset="4">
+          <button
+            class="p-element p-ripple p-button-raised p-button-text p-button p-component"
+            (click)="onHandleSubmitForm()"
+          >
+            Tính thuế
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div nz-col nzSpan="8" class="result" *ngIf="result">
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Thu nhập cá nhân</div>
+      <div nz-col nzSpan="8">{{ result.income }}</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Lương đóng bảo hiểm</div>
+      <div nz-col nzSpan="8">{{ result.insuranceAmount }}</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Vùng</div>
+      <div nz-col nzSpan="8">{{ result.region }}</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Số người phụ thuộc</div>
+      <div nz-col nzSpan="8">{{ result.quantity }}</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Trích nộp bảo hiểm :</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Bảo hiểm xã hội</div>
+      <div nz-col nzSpan="8">{{ result.socialInsurance }}%</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Bảo hiểm y tế</div>
+      <div nz-col nzSpan="8">{{ result.healthInsurance }}%</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Bảo hiểm thất nghiệp</div>
+      <div nz-col nzSpan="8">{{ result.unemploymentInsurance }}%</div>
+    </div>
+    <hr />
+    <div nz-row class="row-item"></div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Thuế thu nhập cá nhân phải đóng :</div>
+      <div nz-col nzSpan="8">{{ result.taxPay }}</div>
+    </div>
+    <div nz-row class="row-item">
+      <div nz-col nzSpan="16">Thu nhập sau thuế</div>
+      <div nz-col nzSpan="8">{{ result.incomeAfterTax }}</div>
+    </div>
+    <div class="txt-info">
+      *Công thức tính thuế thu nhập cá nhân được xây dựng dựa theo luật thuế thu
+      nhập cá nhân năm 2022
+    </div>
+  </div>
+</div>

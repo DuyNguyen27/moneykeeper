@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
-  UntypedFormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
@@ -10,7 +9,7 @@ import { SignInModel } from '../../models/form.model';
 import { AuthService } from '../../services/auth.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
-import { of } from 'rxjs';
+import { validateAllFormFields } from '@core/helpers/form.helper';
 
 @Component({
   selector: 'angular-login',
@@ -62,7 +61,7 @@ export class LoginComponent implements OnInit {
         error: (e: any) => this.notification.error(e.error, e.message),
       });
     } else {
-      this.validateAllFormFields(this.signInForm);
+      validateAllFormFields(this.signInForm);
     }
   }
 
@@ -73,16 +72,5 @@ export class LoginComponent implements OnInit {
       (this.signInForm.get(field)?.untouched && this.formSummitAttempt) ||
       false
     );
-  }
-
-  validateAllFormFields(formGroup: UntypedFormGroup) {
-    Object.keys(formGroup.controls).forEach((field) => {
-      const control = formGroup.get(field);
-      if (control instanceof UntypedFormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof UntypedFormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
   }
 }

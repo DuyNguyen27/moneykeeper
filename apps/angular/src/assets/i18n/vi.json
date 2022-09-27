@@ -19,6 +19,7 @@
   "form.valid.name": "Vui lòng nhập tên của bạn",
   "form.valid.email": "Vui lòng nhập địa chỉ email",
   "form.valid.password": "Vui lòng nhập mật khẩu",
+  "form.valid.tax": "Vui lòng nhập đầy đủ thông tin",
   "page.404.title": "O-o-oh!, Có vẻ bạn đã lạc đường",
   "page.404.goback": "Quay trở lại",
   "app.config.darktheme": "Tối",

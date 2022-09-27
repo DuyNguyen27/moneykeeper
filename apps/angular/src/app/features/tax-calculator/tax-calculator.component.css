@@ -1,15 +1,37 @@
-.container{
+.tax-container {
+  margin: 20px;
+}
+.result {
+  position: relative;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 1px 20px rgb(0 21 41 / 8%);
+}
+
+.row-item {
+  padding: 3px 0px;
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.form{
-  width: 500px;
-  height: 500px;
-  background-color: red;
+.p-dropdown {
+  width: 100%;
 }
 
-.result{
-  width: 500px;
-  height: 500px;
-  background-color: blue;
+.p-autocomplete {
+  width: 100%;
+}
+
+.submit {
+  margin-top: 20px;
+}
+
+.txt-info {
+  position: absolute;
+  bottom: 0;
+  font-size: 10px;
+  color: gray;
 }

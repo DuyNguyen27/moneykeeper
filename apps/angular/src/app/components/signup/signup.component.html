@@ -10,17 +10,17 @@
             />
         </div>
         <span class="form__span">{{ t('signup.or') }}</span>
-        <input  autocomplete="off" name="name" class="form__input" type="text" pInputText [formControlName]="'name'" [placeholder]="t('auth.form.name')" />
+        <input class="form__input" type="text" pInputText [formControlName]="'name'" [placeholder]="t('auth.form.name')" />
         <div class="validation">
             <angular-field-error-display [displayError]="isFieldValid('name')" errorMsg="form.valid.name">
             </angular-field-error-display>
         </div>
-        <input name="email" class="form__input" type="email" pInputText [formControlName]="'email'" [placeholder]="t('auth.form.email')" />
+        <input autocomplete="off" class="form__input" pInputText [formControlName]="'email'" [placeholder]="t('auth.form.email')" />
         <div class="validation">
             <angular-field-error-display [displayError]="isFieldValid('email')" errorMsg="form.valid.email">
             </angular-field-error-display>
         </div>
-        <p-password name="password" autocomplete="off" [ngStyle]="{ width: '100%' }" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [formControlName]="'password'" [toggleMask]="true" [placeholder]="t('auth.form.password')"></p-password>
+        <p-password autocomplete="off" [ngStyle]="{ width: '100%' }" styleClass="input-pass-custom p-password p-component p-inputwrapper p-input-icon-right" [formControlName]="'password'" [toggleMask]="true" [placeholder]="t('auth.form.password')"></p-password>
         <div class="validation">
             <angular-field-error-display [displayError]="isFieldValid('password')" errorMsg="form.valid.password">
             </angular-field-error-display>

@@ -5,19 +5,14 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from '../../components/login/login.component';
 import { SignupComponent } from '../../components/signup/signup.component';
-import { FieldErrorDisplayComponent } from '../../components/field-error-display/field-error-display.component';
 import { NgPrimeModule } from '../../shared/ngprime.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from '../../shared/ng-zorro-antd.module';
-import { TranslocoRootModule } from '../../transloco-root.module';
+import { FieldErrorDisplayModule } from '@core/shared/shared.module';
+import { TranslocoRootModule } from '@core/transloco-root.module';
 
 @NgModule({
-  declarations: [
-    AuthComponent,
-    LoginComponent,
-    SignupComponent,
-    FieldErrorDisplayComponent,
-  ],
+  declarations: [AuthComponent, LoginComponent, SignupComponent],
   imports: [
     CommonModule,
     NgPrimeModule,
@@ -26,6 +21,7 @@ import { TranslocoRootModule } from '../../transloco-root.module';
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
+    FieldErrorDisplayModule,
   ],
 })
 export class AuthModule {}

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
 @import url('./assets/antd-style-custom.scss');
 @import url('./assets/prime.style.scss');
+@import url('./assets/style.common.scss');
 html,
 body {
   width: 100%;
@@ -14,4 +15,8 @@ body {
 
 input {
   line-height: 0;
+}
+
+hr{
+  border: 0.5px solid gray;
 }

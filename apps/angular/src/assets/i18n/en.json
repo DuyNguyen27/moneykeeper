@@ -19,6 +19,7 @@
   "form.valid.name": "Your name is required",
   "form.valid.email": "Email is required",
   "form.valid.password": "Password is required",
+  "form.valid.tax": "Vui lòng nhập đầy đủ thông tin",
   "page.404.title": "O-o-oh!, Look like you're lost",
   "page.404.goback": "Go Back",
   "app.config.darktheme": "Dark Mode",

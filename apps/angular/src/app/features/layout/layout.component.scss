@@ -13,7 +13,7 @@
   position: relative;
   z-index: 10;
   box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
-  margin: 10px 0px 10px 20px;
+  margin: 10px 0px 10px 10px;
   border-radius: 10px;
 }
 nz-layout {
@@ -25,11 +25,11 @@ nz-header {
   width: 100%;
   z-index: 2;
   background-color: transparent !important;
-  padding: 10px 20px;
+  padding: 10px;
 }
 
 nz-content {
-  margin: 20px 20px 10px 20px;
+  margin: 20px 10px 10px 10px;
 }
 
 .inner-content {
@@ -37,6 +37,7 @@ nz-content {
   background: #fff;
   height: 100%;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .sidebar-logo {

@@ -1,4 +1,12 @@
-<div class="container">
-  <div class="form">a</div>
-  <div class="result">b</div>
-</div>
+<nz-tabset>
+  <nz-tab nzTitle="Tính thuế thu nhập cá nhân">
+    <ng-template nz-tab>
+      <angular-personal-income-tax></angular-personal-income-tax>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="Quyết toán thuế thu nhập cá nhân">
+    <ng-template nz-tab>
+      <angular-personal-income-tax-finalization></angular-personal-income-tax-finalization>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>
