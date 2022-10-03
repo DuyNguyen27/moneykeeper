@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   isCollapsedMenu = true;
   public menuData = sideBarMenu;
   event$: any;
-  currentRoute!: string;
+  currentRoute: string = '';
 
   constructor(
     private localStorageService: LocalStorageService,
