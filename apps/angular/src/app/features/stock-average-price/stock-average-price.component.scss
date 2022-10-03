@@ -1,0 +1,49 @@
+.row-item {
+  margin-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 40px;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: ghostwhite;
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+
+  &-header {
+    padding: 10px;
+    border-bottom: 0.5px solid cornflowerblue;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &-content {
+    padding: 10px;
+
+    &-item {
+      padding: 10px 0;
+    }
+
+    &-item:not(:nth-last-child(1)) {
+      border-bottom: 0.5px solid cornflowerblue;
+    }
+  }
+
+  .label {
+    font-weight: 500;
+  }
+
+  .value {
+    font-weight: 700;
+    color: red;
+  }
+}

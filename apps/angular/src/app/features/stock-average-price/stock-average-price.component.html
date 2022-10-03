@@ -1,0 +1,118 @@
+<div class="container">
+  <div nz-row nzJustify="center" class="title"><h1>Tính trung bình giá cổ phiếu</h1></div>
+  <div nz-row nzJustify="space-around" class="row-item">
+    <div nz-col nzSpan="8">
+      <div class="card">
+        <div class="card-header">
+          Giá trị ban đầu
+        </div>
+        <div class="card-content">
+          <div nz-row nzAlign="middle" class="card-content-item">
+            <div nz-col nzSpan="12" class="label">Số lượng cổ phiếu ban đầu :</div>
+            <div nz-col class="value">
+              <p-inputNumber
+                [min]="0"
+                [(ngModel)]="stockQuantityInit"
+              ></p-inputNumber>
+            </div>
+          </div>
+          <div nz-row nzAlign="middle" class="card-content-item">
+            <div nz-col nzSpan="12" class="label">Giá tiền ban đầu:</div>
+            <div nz-col class="value">
+              <p-inputNumber
+                [min]="0"
+                [(ngModel)]="stockPriceInit"
+              ></p-inputNumber>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <div class="card">
+        <div class="card-header">
+          Giá trị mới
+        </div>
+        <div class="card-content">
+          <div nz-row nzAlign="middle" class="card-content-item">
+            <div nz-col nzSpan="12" class="label">Số lượng cổ phiếu mua mới :</div>
+            <div nz-col class="value">
+              <p-inputNumber
+                [min]="0"
+                [(ngModel)]="stockQuantityNew"
+              ></p-inputNumber>
+            </div>
+          </div>
+          <div nz-row nzAlign="middle" class="card-content-item">
+            <div nz-col nzSpan="12" class="label">Giá tiền mới :</div>
+            <div nz-col class="value">
+              <p-inputNumber
+                [min]="0"
+                [(ngModel)]="stockPriceNew"
+              ></p-inputNumber>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row nzJustify="space-around" class="row-item">
+    <div nz-col nzSpan="8">
+      <div class="card" *ngIf="getTotalPriceInit">
+        <div class="card-header">
+          Tổng giá trị ban đầu
+        </div>
+        <div class="card-content">
+          <div nz-row nzJustify="center" class="card-content-item">
+            <div nz-col class="value">{{(getTotalPriceInit | number) || ''}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <div class="card" *ngIf="getTotalPriceNew">
+        <div class="card-header">
+          Tổng giá trị mới
+        </div>
+        <div class="card-content">
+          <div nz-row nzJustify="center" class="card-content-item">
+            <div nz-col class="value">{{(getTotalPriceNew | number) || ''}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row nzJustify="center" class="row-item">
+    <div nz-col nzSpan="8">
+      <div class="card"
+           *ngIf="getTotalPriceStock"
+           @query
+           (@query.start)="getTotalPriceStock"
+           (@query.done)="!getTotalPriceStock"
+      >
+        <div class="card-header item-opacity">
+          Kết quả
+        </div>
+        <div *ngIf="getTotalPriceStock" class="card-content">
+          <div nz-row class="card-content-item">
+            <div nz-col nzSpan="16" class="label">Tổng số lượng cổ phiếu :</div>
+            <div nz-col class="value">{{(getTotalQuantityStock | number)}}</div>
+          </div>
+          <div nz-row class="card-content-item">
+            <div nz-col nzSpan="16" class="label">Tổng tiền ( bao gồm phí mua ) :</div>
+            <div nz-col class="value">{{(getTotalPriceStock | number)}}</div>
+          </div>
+          <div nz-row class="card-content-item">
+            <div nz-col nzSpan="16" class="label">Giá trung bình mới :</div>
+            <div nz-col class="value">{{(getNewAveragePrice | number)}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row nzJustify="center" *ngIf="getTotalPriceStock">
+    <div nz-col nzSpan="4">
+      <button class="reset-button"  (click)="resetForm()">Tính lại</button>
+    </div>
+  </div>
+</div>

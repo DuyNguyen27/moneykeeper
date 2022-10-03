@@ -3,10 +3,11 @@ export interface ISidebar {
   icon: string;
   open: boolean;
   link?: string;
-  subMenu?: any;
+  alias?: string;
+  subMenu?: ISidebar[];
 }
 
-export const sideBarMenu: any = [
+export const sideBarMenu: ISidebar[] = [
   {
     title: 'Dashboard',
     icon: 'dashboard',
@@ -17,6 +18,7 @@ export const sideBarMenu: any = [
     title: 'Danh mục',
     icon: 'profile',
     open: false,
+    alias: 'profile',
     subMenu: [
       {
         title: 'Tạo thu chi',
@@ -36,6 +38,7 @@ export const sideBarMenu: any = [
     title: 'Báo cáo',
     icon: 'fund-projection-screen',
     open: false,
+    alias: 'report',
     subMenu: [
       {
         title: 'Tài chính hiện tại',
@@ -49,12 +52,19 @@ export const sideBarMenu: any = [
     title: 'Tiện ích',
     icon: 'control',
     open: false,
+    alias: 'tools',
     subMenu: [
       {
         title: 'Tính thuế',
         icon: 'money-collect',
         open: false,
         link: 'tools/tax-calculator',
+      },
+      {
+        title: 'Tính trung bình giá cổ phiếu',
+        icon: 'stock',
+        open: true,
+        link: 'tools/stock-average-price',
       },
     ],
   },

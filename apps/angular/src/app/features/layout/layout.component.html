@@ -28,11 +28,12 @@
             <span>{{ menu.title }}</span>
           </li>
           <li
-            *ngIf="menu.subMenu"
             nz-submenu
-            [nzOpen]="menu.open"
+            *ngIf="menu.subMenu"
+            [nzOpen]="currentRoute.includes(menu.alias)"
             [nzTitle]="menu.title"
             [nzIcon]="menu.icon"
+            nzMatchRouter
           >
             <ul>
               <ng-container

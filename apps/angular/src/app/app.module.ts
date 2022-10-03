@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { vi_VN } from 'ng-zorro-antd/i18n';
 import { TranslocoRootModule } from './transloco-root.module';
+import { StockAveragePriceModule } from './features/stock-average-price/stock-average-price.module';
 
 registerLocaleData(vi);
 
@@ -28,6 +29,7 @@ registerLocaleData(vi);
     HttpClientModule,
     TranslocoRootModule,
     AppRoutingModule,
+    StockAveragePriceModule,
   ],
   bootstrap: [AppComponent],
   providers: [
