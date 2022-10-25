@@ -1,1 +1,27 @@
-<p>settings works!</p>
+<div class="container">
+  <div nz-row class="full-height">
+    <div nz-col nzSpan="4" class="left">
+      <div class="title">Settings</div>
+      <div class="menu">
+        <div class="menu-item" *ngFor="let item of menu" [routerLink]="[item.link]"
+             [routerLinkActive]="'active'">
+          <span nz-icon [nzType]="item.icon" nzTheme="outline" class="icon"></span>
+          <div class="name">{{item.title}}</div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="20" class="right">
+      <div nz-col class="top full-width">
+        <div class="header">
+          Profile
+        </div>
+        <div class="sub-title">
+          manager your team
+        </div>
+      </div>
+      <div nz-col class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

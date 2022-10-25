@@ -1,0 +1,80 @@
+.container {
+  height: 100%;
+}
+
+.left {
+  height: 100%;
+  border-right: 0.5px solid lightgray;
+  padding-right: 24px;
+
+  .title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+
+  .menu {
+    &-item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 10px;
+      margin-bottom: 5px;
+
+      .icon {
+        margin-right: 20px;
+      }
+
+      .name {
+
+      }
+
+
+    }
+
+    &-item:hover {
+      background-color: #eff3f4;
+    }
+
+    .active {
+      font-weight: 700;
+      background-color: #eff3f4;
+    }
+  }
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.right {
+  padding-left: 24px;
+
+  .top {
+    border-bottom: 0.5px solid lightgray;
+    padding-bottom: 24px;
+
+    .header {
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+
+    .sub-title {
+      color: gray;
+    }
+  }
+
+  .content {
+    margin-top: 24px;
+  }
+}
+
+
+
+
+
