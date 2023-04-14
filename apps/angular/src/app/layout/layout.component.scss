@@ -9,6 +9,10 @@
   height: 100vh;
 }
 
+.body-content { 
+  position: relative;
+}
+
 .menu-sidebar {
   position: relative;
   z-index: 10;
@@ -34,6 +38,8 @@ nz-content {
 
 .inner-content {
   padding: 24px;
+  margin-left : 100px;
+  padding-left : 120px;
   background: #fff;
   height: 100%;
   border-radius: 10px;

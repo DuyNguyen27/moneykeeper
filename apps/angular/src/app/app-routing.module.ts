@@ -7,8 +7,8 @@ const appRoutes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./features/layout/layout.module').then((m) => m.LayoutModule),
-    canActivate: [AuthGuard],
+      import('./layout/layout.module').then((m) => m.LayoutModule),
+    // canActivate: [AuthGuard],
   },
   {
     path: 'auth',

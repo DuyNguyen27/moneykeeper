@@ -24,7 +24,8 @@
     "baseUrl": "src",
     "paths": {
       "@core/*": ["app/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@evironments/*": ["evironments/*"],
     }
   },
   "angularCompilerOptions": {
