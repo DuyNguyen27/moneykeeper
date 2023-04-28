@@ -1,44 +1,8 @@
-<div class="side-bar" [@shrinkWidth]="!isCollapse ? 'expanded' : 'collapsed'">
+<div class="side-bar" [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'">
   <div class="sidebar-logo">
       <a routerLink="/">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-        <h1 style="color: black">Money keeper</h1>
       </a>
     </div>
     <div class="divider"><div class="arrow" (click)="setCollapseMenu()"></div></div>
-    <ul nz-menu nzMode="inline" class="full-menu">
-      <ng-container
-        *ngTemplateOutlet="menuTpl; context: { $implicit: menuData }"
-      ></ng-container>
-      <ng-template #menuTpl let-menus>
-        <ng-container *ngFor="let menu of menus">
-          <li
-            *ngIf="!menu.subMenu"
-            nz-menu-item
-            [routerLink]="[menu.link]"
-            nzMatchRouter
-          >
-            <span nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></span>
-            <span>{{ menu.title }}</span>
-          </li>
-          <li
-            nz-submenu
-            *ngIf="menu.subMenu"
-            [nzOpen]="currentRoute.includes(menu.alias)"
-            [nzTitle]="menu.title"
-            [nzIcon]="menu.icon"
-            nzMatchRouter
-          >
-            <ul>
-              <ng-container
-                *ngTemplateOutlet="
-                  menuTpl;
-                  context: { $implicit: menu.subMenu }
-                "
-              ></ng-container>
-            </ul>
-          </li>
-        </ng-container>
-      </ng-template>
-    </ul>
   </div>

@@ -14,16 +14,14 @@ import { sideBarMenu } from '@core/constants/sidebar.constant';
   selector: 'angular-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss'],
-  animations: [Animations.expandTrigger],
+  animations: [Animations.menuExpandCollapse],
 })
 export class SideBarComponent implements OnInit, OnDestroy {
-  @Input() isCollapse!: boolean;
+  @Input() isExpanded!: boolean;
   @Output() onCollapseMenuEvent = new EventEmitter<void>();
   event$: any;
   public menuData = sideBarMenu;
   currentRoute: string = '';
-
-  styleCollapse = this.isCollapse ? 'width : 100px; left : 30px' : '';
 
   constructor(private router: Router) {}
 

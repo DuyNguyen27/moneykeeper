@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { triggerExpandHeightAnimation } from '@core/animations';
+import { triggerExpandHeightAnimation } from '@core/animations/animation.trigger';
 
 @Component({
   selector: 'angular-stock-average-price',

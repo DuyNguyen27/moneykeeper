@@ -11,7 +11,6 @@ import {
   query,
   keyframes,
 } from '@angular/animations';
-import { expandAnimation } from './animation.state';
 
 export const triggerExpandHeightAnimation = [
   trigger('query', [
@@ -51,24 +50,46 @@ export const triggerExpandHeightAnimation = [
 ];
 
 export const Animations = {
-  expandTrigger: trigger('shrinkWidth', [
-    transition('expanded => collapsed', [
-      useAnimation(expandAnimation, {
-        params: {
-          width: '100px',
-          left: '30px',
-          time: '0.5s',
-        },
-      }),
-    ]),
-    transition('collapsed => expanded', [
-      useAnimation(expandAnimation, {
-        params: {
-          width: '200px',
-          left: 0,
-          time: '0.5s',
-        },
-      }),
-    ]),
+  menuExpandCollapse: trigger('expandCollapse', [
+    state(
+      'expanded',
+      style({
+        width: '200px',
+        height: 'calc(100% - 80px)',
+        left: '0px',
+        top: '40px',
+        'border-radius': '20px',
+      })
+    ),
+    state(
+      'collapsed',
+      style({
+        width: '80px',
+        height: 'calc(100% - 60px)',
+        left: '10px',
+        top: '30px',
+        'border-radius': '10px',
+      })
+    ),
+    transition('expanded => collapsed', [animate('0.5s ease-out')]),
+    transition('collapsed => expanded', [animate('0.5s ease-out')]),
+  ]),
+  bodyExpandCollapse: trigger('moveLeft', [
+    state(
+      'start',
+      style({
+        'margin-left': '100px',
+        'padding-top': '35px',
+      })
+    ),
+    state(
+      'end',
+      style({
+        'margin-left': '0px',
+        'padding-top': '25px',
+      })
+    ),
+    transition('start => end', [animate('0.5s ease-out')]),
+    transition('end => start', [animate('0.5s ease-out')]),
   ]),
 };

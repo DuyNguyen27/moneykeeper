@@ -1,4 +1,4 @@
 export interface IAppConfig {
-  isCollapsedMenu: boolean;
+  isExpandedMenu: boolean;
   theme: 'light' | 'dark';
 }
