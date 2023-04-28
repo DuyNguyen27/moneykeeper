@@ -1,10 +1,11 @@
-<div class="side-bar">
+<div class="side-bar" [@shrinkWidth]="!isCollapse ? 'expanded' : 'collapsed'">
   <div class="sidebar-logo">
       <a routerLink="/">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
         <h1 style="color: black">Money keeper</h1>
       </a>
     </div>
+    <div class="divider"><div class="arrow" (click)="setCollapseMenu()"></div></div>
     <ul nz-menu nzMode="inline" class="full-menu">
       <ng-container
         *ngTemplateOutlet="menuTpl; context: { $implicit: menuData }"

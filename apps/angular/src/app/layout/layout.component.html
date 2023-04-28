@@ -3,7 +3,7 @@
       <angular-header></angular-header>
     </nz-header>
     <nz-content class="body-content">
-    <angular-side-bar></angular-side-bar>
+    <angular-side-bar [isCollapse]="isCollapsedMenu" (onCollapseMenuEvent)="setCollapse()"></angular-side-bar>
       <div class="inner-content">
         <router-outlet></router-outlet>
         <angular-speeddial></angular-speeddial>

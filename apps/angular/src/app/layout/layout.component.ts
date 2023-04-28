@@ -17,6 +17,11 @@ export class LayoutComponent implements OnInit {
     this.loadAppConfig();
   }
 
+  setCollapse() {
+    this.isCollapsedMenu = !this.isCollapsedMenu;
+    console.log(this.isCollapsedMenu);
+  }
+
   loadAppConfig(): void {
     // config system preference
     const appConfig: IAppConfig | null =
