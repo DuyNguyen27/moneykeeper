@@ -54,7 +54,7 @@ export const Animations = {
     state(
       'expanded',
       style({
-        width: '200px',
+        width: '180px',
         height: 'calc(100% - 80px)',
         left: '0px',
         top: '40px',
@@ -78,7 +78,7 @@ export const Animations = {
     state(
       'start',
       style({
-        'margin-left': '100px',
+        'margin-left': '90px',
         'padding-top': '35px',
       })
     ),

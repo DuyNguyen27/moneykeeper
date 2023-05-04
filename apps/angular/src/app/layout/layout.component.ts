@@ -21,7 +21,6 @@ export class LayoutComponent implements OnInit {
 
   setCollapse() {
     this.isExpandedMenu = !this.isExpandedMenu;
-    console.log(this.isExpandedMenu);
   }
 
   loadAppConfig(): void {

@@ -4,5 +4,24 @@
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
       </a>
     </div>
-    <div class="divider"><div class="arrow" (click)="setCollapseMenu()"></div></div>
+    <div class="divider">
+      <div class="arrow" (click)="setCollapseMenu()" [style.transform]="isExpanded ? 'rotate(180deg)' :'rotate(0deg)'">
+        <img src="assets/images/arrow-right.png" width="14px" height="14px">
+      </div>
+      </div>
+     <div class="menu">
+       <div *ngFor="let item of menuData" class="group-item" [ngClass]="item?.subMenu?.length && item?.open ? 'group-item-expanded' : ''">
+         <div class="menu-item" (click)="onNavigate(item)" routerLinkActive=" router-active">
+        <img [hidden]="isShowArrow(item?.subMenu?.length)" src="/assets/images/arrow-down.png" class="arrow-icon"/>
+        <span class="menu-item-icon">A</span>
+        <span [hidden]="!isExpanded" class="menu-item-title">{{item.title}}</span>
+        </div>
+         <div [hidden]="!item?.open">
+          <a class="menu-item" *ngFor="let subItem of item.subMenu" [routerLink]="subItem.link" routerLinkActive="router-active">
+          <span class="menu-item-icon">A</span>
+          <span [hidden]="!isExpanded" class="menu-item-title">{{subItem.title}}</span>
+          </a>
+        </div>
+       </div>
+     </div>
   </div>
